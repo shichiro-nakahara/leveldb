@@ -12,6 +12,8 @@
 #include "util/hash.h"
 #include "util/mutexlock.h"
 
+#define _unused(x) ((void)(x))
+
 namespace leveldb {
 
 Cache::~Cache() {}
@@ -140,6 +142,7 @@ class HandleTable {
       }
     }
     assert(elems_ == count);
+    _unused(count);
     delete[] list_;
     list_ = new_list;
     length_ = new_length;
